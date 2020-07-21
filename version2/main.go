@@ -13,6 +13,12 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	newfile, err := os.Create("index.html")
+	if err != nil {
+		log.Println("Error creating file", err)
+	}
+	defer newfile.Close()
+
 	err = tpl.Execute(os.Stdout, nil)
 	if err != nil {
 		log.Fatalln(err)
