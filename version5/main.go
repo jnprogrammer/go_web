@@ -13,5 +13,9 @@ func init() {
 }
 
 func main() {
-
+	sages := []string{"Goku", "Raden", "Baki", "Ip Man"}
+	err := tpl.Execute(os.Stdout, sages)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
